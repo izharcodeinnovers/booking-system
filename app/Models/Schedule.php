@@ -22,10 +22,10 @@ class Schedule extends Model
 
     public function getWorkingHoursForDate(Carbon $date)
     {
-        $hours =  [
+        $hours = array_filter([
             $this->{strtolower($date->format('l')) . '_starts_at' },
             $this->{strtolower($date->format('l')) . '_ends_at' }
-        ];
+        ]);
         return empty($hours) ? null :$hours;
     }
 
